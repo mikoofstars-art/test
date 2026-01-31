@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "com.example.cheatmod.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [],
+	"client": [
+		"PlayerEntityMixin",
+		"LivingEntityMixin",
+		"ItemStackMixin",
+		"ScreenHandlerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
