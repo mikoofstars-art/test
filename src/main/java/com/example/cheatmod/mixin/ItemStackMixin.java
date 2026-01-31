@@ -13,7 +13,7 @@ public abstract class ItemStackMixin {
 
 	@Inject(method = "damage(ILnet/minecraft/entity/LivingEntity;Ljava/util/function/Consumer;)V", at = @At("HEAD"), cancellable = true)
 	private void preventDamage(int amount, LivingEntity entity, CallbackInfo ci) {
-		if (CheatMod.indestructibleTools) {
+		if (CheatMod.config != null && CheatMod.config.indestructibleTools) {
 			ci.cancel();
 		}
 	}

@@ -14,7 +14,7 @@ public abstract class PlayerEntityMixin {
 
 	@Inject(method = "damage", at = @At("HEAD"), cancellable = true)
 	private void onDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-		if (CheatMod.noDamage) {
+		if (CheatMod.config != null && CheatMod.config.noDamage) {
 			cir.setReturnValue(false);
 		}
 	}
@@ -23,11 +23,11 @@ public abstract class PlayerEntityMixin {
 	private void onTick(CallbackInfo ci) {
 		PlayerEntity player = (PlayerEntity) (Object) this;
 
-		if (CheatMod.unlimitedBreath) {
+		if (CheatMod.config != null && CheatMod.config.unlimitedBreath) {
 			player.setAir(player.getMaxAir());
 		}
 
-		if (CheatMod.maxScore) {
+		if (CheatMod.config != null && CheatMod.config.maxScore) {
 			if (player.experienceLevel < 10000) {
 				player.experienceLevel = 10000;
 			}

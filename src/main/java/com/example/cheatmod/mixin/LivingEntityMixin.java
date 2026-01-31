@@ -13,7 +13,7 @@ public abstract class LivingEntityMixin {
 
 	@ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true, ordinal = 0)
 	private float modifyDamageAmount(float amount, DamageSource source) {
-		if (CheatMod.oneHitKill && source.getAttacker() instanceof PlayerEntity) {
+		if (CheatMod.config != null && CheatMod.config.oneHitKill && source.getAttacker() instanceof PlayerEntity) {
 			LivingEntity target = (LivingEntity) (Object) this;
 			if (!(target instanceof PlayerEntity)) {
 				return target.getMaxHealth() + 1000.0F;

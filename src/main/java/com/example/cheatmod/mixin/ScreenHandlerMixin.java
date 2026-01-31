@@ -14,7 +14,7 @@ public abstract class ScreenHandlerMixin {
 
 	@Inject(method = "onSlotClick", at = @At("RETURN"))
 	private void onSlotClick(int slotIndex, int button, SlotActionType actionType, CallbackInfo ci) {
-		if (CheatMod.maxInventorySize) {
+		if (CheatMod.config != null && CheatMod.config.maxInventorySize) {
 			ScreenHandler handler = (ScreenHandler) (Object) this;
 			if (slotIndex >= 0 && slotIndex < handler.slots.size()) {
 				ItemStack stack = handler.slots.get(slotIndex).getStack();

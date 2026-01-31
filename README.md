@@ -1,6 +1,6 @@
 # Minecraft Cheat Mod
 
-Fabric mod for Minecraft 1.21.1 with various cheat features.
+Fabric mod for Minecraft 1.21.1 with various cheat features and in-game configuration menu.
 
 
 ## Features
@@ -11,6 +11,10 @@ Fabric mod for Minecraft 1.21.1 with various cheat features.
 4. **One Hit Kill** - Kill any mob with a single hit
 5. **Max Score** - Automatically sets experience level to 10000
 6. **Indestructible Tools** - Tools and items never lose durability
+
+## In-Game Configuration
+
+Press **U** key (default) to open the mod settings menu. You can toggle any feature on or off without restarting the game. Settings are automatically saved to `config/cheatmod.json`.
 
 ## Installation
 
@@ -29,23 +33,20 @@ Fabric mod for Minecraft 1.21.1 with various cheat features.
 ### Build Steps
 
 ```bash
+chmod +x ./gradlew
 ./gradlew build
 ```
 
 The compiled mod JAR will be in `build/libs/` directory.
 
-## Configuration
+## GitHub Actions
 
-All features are enabled by default. To disable specific features, modify the boolean values in `CheatMod.java`:
+This mod includes automated building and release workflows:
 
-```java
-public static boolean noDamage = true;
-public static boolean unlimitedBreath = true;
-public static boolean oneHitKill = true;
-public static boolean indestructibleTools = true;
-public static boolean maxScore = true;
-public static boolean maxInventorySize = true;
-```
+- **Automatic Build**: Every push to main/master branch triggers a build
+- **Release Creation**: Create a git tag (e.g., `v1.0.0`) to automatically create a release with the compiled JAR
+
+See [GITHUB_ACTIONS.md](GITHUB_ACTIONS.md) for detailed instructions on using GitHub Actions.
 
 ## Technical Details
 
